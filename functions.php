@@ -5,7 +5,7 @@
  *
  * @return PDO chillis database
  */
-function getdb() {
+function getdb() :PDO {
     $db = new PDO('mysql:host=db; dbname=chillis', 'root', 'password');
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     return $db;
@@ -47,11 +47,6 @@ function createTable(array $dbQuery) {
                             '</tr>';
                 }
                 return $table;
-
 }
-
-
-
-
 
 ?>
