@@ -31,6 +31,9 @@ function collectDBData(PDO $db) :array {
  * @return string a table made up from the database query
  */
 function createTable(array $dbQuery) {
+    if($dbQuery === []) {
+        return 'There is no data for this database';
+    }
     $table = '<tr>' .
                 '<td>Name</td>' .
                 '<td>Country of Origin</td>' .

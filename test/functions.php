@@ -21,29 +21,29 @@ class Functions extends TestCase {
         //compare the expected result with the actual result
         $this->assertEquals($expected, $case);
     }
-}  
-    // public function testCheckAnswerFailure()
-    // {
-    //     //expected result of the test
-    //     $expected = 0;
-    //     //input for the test to get the result
-    //     $testInput1 = 'none';
-    //     $testInput2 = 'banana';
-    //     //run the real function with the input
-    //     $case = checkAnswer($testInput1, $testInput2);
-    //     //compare the expected result with the actual result
-    //     $this->assertEquals($expected, $case);
-    // }
+  
+    public function testCreateTableFailure()
+    {
+        //expected result of the test
+        $expected = 'There is no data for this database'; 
+        //input for the test to get the result
+        $testInput1 = [];
+        //run the real function with the input
+        $case = createTable($testInput1);
+        //compare the expected result with the actual result
+        $this->assertEquals($expected, $case);
+    }
 
-    // public function testCheckAnswerMalform()
-    // {
-    //     //expected result of the test
-    //     $expected = 0;
-    //     //input for the test to get the result
-    //     $testInput1 = ['dry' => 10, 'grass' => 0];
-    //     $testInput2 = 'apple';
-    //     // tell phpunit it should expect an error to be thrown
-    //     $this->expectException(TypeError::class);
-    //     //run the real function with the input
-    //     $case = checkAnswer($testInput1, $testInput2);
-    // }
+    public function testCreateTableMalform()
+    {
+        //expected result of the test
+        $expected = 'There is no data for this database'; 
+        //input for the test to get the result
+        $testInput1 = 25;
+        // tell phpunit it should expect an error to be thrown
+        $this->expectException(TypeError::class);
+        //run the real function with the input
+        $case = createTable($testInput1);
+    }
+
+}
