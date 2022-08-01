@@ -7,14 +7,39 @@ $query = $db->prepare("SELECT `name`, `origin`, `shu` FROM `chillis`;");
 $query->execute();
 $chilliData = $query->fetchAll();
 
-echo '<pre>';
-var_dump($chilliData);
-echo '</pre>';
+// echo '<pre>';
+// var_dump($chilliData);
+// echo '</pre>';
 
-
-
+// foreach($chilliData as $data) {
+//     echo $data["name"] . '<br>';
+// }
 
 
 
 
 ?>
+<html>
+    <head>
+
+    </head>
+    <body>
+
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>Country of Origin</td>
+                <td>Scoville Heat Units</td>
+            </tr>
+            <? foreach($chilliData as $data) {
+                        echo '<tr>' . 
+                            '<td>' . $data["name"] . '</td>' .
+                            '<td>' . $data["origin"] . '</td>' .
+                            '<td>' . $data["shu"] . '</td>' . 
+                            '</tr>';
+
+                }?>
+            
+        </table>
+    </body>
+</html>
