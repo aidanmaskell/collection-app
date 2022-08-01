@@ -1,32 +1,37 @@
 <?php
 
-//connect to db
-$db = new PDO('mysql:host=db; dbname=chillis', 'root', 'password');
-$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-$query = $db->prepare("SELECT `name`, `origin`, `shu` FROM `chillis`;");
-$query->execute();
-$chilliData = $query->fetchAll();
-
+require_once 'functions.php'; 
+$db = getdb();
+$chilliData = collectDBData($db);
 
 ?>
-<html>
-    <head>
 
-    </head>
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+	<title>Chillis</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="normalize.css" type="text/css" rel="stylesheet" />
+	<link href="styles.css" type="text/css" rel="stylesheet" />
+</head>
     <body>
-        <table>
-            <tr>
-                <td>Name</td>
-                <td>Country of Origin</td>
-                <td>Scoville Heat Units</td>
-            </tr>
-            <? foreach($chilliData as $data) {
-                        echo '<tr>' . 
-                            '<td>' . $data["name"] . '</td>' .
-                            '<td>' . $data["origin"] . '</td>' .
-                            '<td>' . $data["shu"] . '</td>' . 
-                            '</tr>';
-                }?>
-        </table>
+        <header>
+                <h1>CHILLIS</h1>
+                <h2>Welcome to my chilli collection</h2>
+        </header>
+        <nav>
+            <div>
+                <!-- <form action='results.php' method='get' />
+                <label for='chillis'>Search for your favourite tennis player</label>
+                <input type='text' name='chillis' />
+                <input type='submit' />
+                </form> -->
+            </div>
+        </nav>
+        <main>
+            <table>
+                <?echo createTable($chilliData)?>
+            </table>
+        </main>
     </body>
 </html>
