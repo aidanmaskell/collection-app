@@ -13,6 +13,9 @@ $chilliData = collectDBData($db);
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="normalize.css" type="text/css" rel="stylesheet" />
 	<link href="styles.css" type="text/css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
 </head>
     <body>
         <header>
