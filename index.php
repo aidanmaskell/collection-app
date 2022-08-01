@@ -11,7 +11,7 @@ $chilliData = collectDBData($db);
     </head>
     <body>
         <table>
-            <?createTable($chilliData)?>
+            <?echo createTable($chilliData)?>
         </table>
     </body>
 </html>
