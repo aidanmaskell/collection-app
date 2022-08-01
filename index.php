@@ -17,16 +17,9 @@ $chilliData = collectDBData($db);
     <body>
         <header>
                 <h1>CHILLIS</h1>
-                <h2>Welcome to my chilli collection</h2>
         </header>
         <nav>
-            <div>
-                <!-- <form action='results.php' method='get' />
-                <label for='chillis'>Search for your favourite tennis player</label>
-                <input type='text' name='chillis' />
-                <input type='submit' />
-                </form> -->
-            </div>
+            <div></div>
         </nav>
         <main>
             <table>
