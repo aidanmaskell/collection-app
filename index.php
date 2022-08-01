@@ -7,16 +7,6 @@ $query = $db->prepare("SELECT `name`, `origin`, `shu` FROM `chillis`;");
 $query->execute();
 $chilliData = $query->fetchAll();
 
-// echo '<pre>';
-// var_dump($chilliData);
-// echo '</pre>';
-
-// foreach($chilliData as $data) {
-//     echo $data["name"] . '<br>';
-// }
-
-
-
 
 ?>
 <html>
@@ -24,7 +14,6 @@ $chilliData = $query->fetchAll();
 
     </head>
     <body>
-
         <table>
             <tr>
                 <td>Name</td>
@@ -37,9 +26,7 @@ $chilliData = $query->fetchAll();
                             '<td>' . $data["origin"] . '</td>' .
                             '<td>' . $data["shu"] . '</td>' . 
                             '</tr>';
-
                 }?>
-            
         </table>
     </body>
 </html>
