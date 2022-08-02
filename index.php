@@ -21,15 +21,12 @@ $chilliData = collectDBData($db);
         <header>
                 <h1>CHILLIS</h1>
         </header>
-        <nav>
-            <div></div>
-        </nav>
         <main>
             <div>
                 <h1>The Collection</h1>
             </div>
             <table>
-                <?echo createTable($chilliData)?>
+                <?php echo createTable($chilliData)?>
             </table>
         </main>
     </body>
