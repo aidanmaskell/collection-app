@@ -35,18 +35,18 @@ function createTable(array $dbQuery) {
         return 'There is no data for this database';
     }
     $table = '<tr>' .
-                '<td>Name</td>' .
-                '<td>Country of Origin</td>' .
-                '<td>Scoville Heat Units</td>'. 
+            '<td>Name</td>' .
+            '<td>Country of Origin</td>' .
+            '<td>Scoville Heat Units</td>'. 
             '</tr>' ; 
-            foreach($dbQuery as $data) {
-                        $table.= '<tr>' . 
-                            '<td>' . $data["name"] . '</td>' .
-                            '<td>' . $data["origin"] . '</td>' .
-                            '<td>' . $data["shu"] . '</td>' . 
-                            '</tr>';
-                }
-                return $table;
+    foreach($dbQuery as $data) {
+        $table.= '<tr>' . 
+                '<td>' . $data["name"] . '</td>' .
+                '<td>' . $data["origin"] . '</td>' .
+                '<td>' . $data["shu"] . '</td>' . 
+                '</tr>';
+        }
+    return $table;
 }
 
 ?>
