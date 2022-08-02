@@ -77,18 +77,8 @@ function intLength(int $entry) :bool {
     }
 }
 
-// /**
-//  * Checks if field has been filled in and is not empty
-//  *
-//  * @param string $field field to be tested 
-//  * @return boolean true if field has been completed and not empty, else returns false
-//  */
-// function validateFields(string $field) :bool {
-//     if (isset($field) && $field !== ''){
-//         return true; 
-//     } else {
-//         return false;
-//     }
+// function addToDB(string $name, string $origin, int $shu) {
+
 // }
 
 ?>

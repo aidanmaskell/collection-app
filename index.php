@@ -36,10 +36,10 @@ $chilliData = collectDBData($db);
             <div>
                 <form action="thankyou.php" method="post">
                     <label for="name">Chilli Name</label>
-                    <input type="text" name="chilli" />
-                    <label for="name">Country of Origin</label>
+                    <input type="text" name="name" />
+                    <label for="origin">Country of Origin</label>
                     <input type="text" name="origin" />
-                    <label for="name">Scoville Heat Units</label>
+                    <label for="shu">Scoville Heat Units</label>
                     <input type="text" name="shu" />
                     <input type="submit" value="Submit" />
                 </form>
