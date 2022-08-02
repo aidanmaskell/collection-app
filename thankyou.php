@@ -22,15 +22,4 @@ if(strLength($name) && strLength($origin) && (intLength($shu))) {
     echo 'the data did not match the criteria';
 }
 
-
-
-
-//sanitisation (placeholders)
-
-//link to db
-
-//add info
-
-//button to return to homepage
-
 ?>
