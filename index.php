@@ -13,24 +13,20 @@ $chilliData = collectDBData($db);
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="normalize.css" type="text/css" rel="stylesheet" />
 	<link href="styles.css" type="text/css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
 </head>
     <body>
         <header>
                 <h1>CHILLIS</h1>
-                <h2>Welcome to my chilli collection</h2>
         </header>
-        <nav>
-            <div>
-                <!-- <form action='results.php' method='get' />
-                <label for='chillis'>Search for your favourite tennis player</label>
-                <input type='text' name='chillis' />
-                <input type='submit' />
-                </form> -->
-            </div>
-        </nav>
         <main>
+            <div>
+                <h1>The Collection</h1>
+            </div>
             <table>
-                <?echo createTable($chilliData)?>
+                <?php echo createTable($chilliData)?>
             </table>
         </main>
     </body>
