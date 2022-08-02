@@ -49,4 +49,36 @@ function createTable(array $dbQuery) {
     return $table;
 }
 
+/**
+ * Checks length of string is less than 100 and return boolean
+ *
+ * @param string $entry string to be tested
+ * @return boolean true if length is less than 100, else false.
+ */
+function strLength(string $entry) :bool {
+    if(strlen($entry) < 100 && strlen($entry) !== 0 && isset($entry)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
+ * Checks an integer is less than 1000000000 and returns boolean
+ *
+ * @param integer $entry integer to be tested
+ * @return boolean true if integer is less than 1000000000, else returns false
+ */
+function intLength(int $entry) :bool {
+    if ($entry < 1000000000 && $entry > 0 && isset($entry)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// function addToDB(string $name, string $origin, int $shu) {
+
+// }
+
 ?>

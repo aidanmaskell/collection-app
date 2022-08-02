@@ -29,5 +29,21 @@ $chilliData = collectDBData($db);
                 <?php echo createTable($chilliData)?>
             </table>
         </main>
+        <footer>
+            <div>
+                <h2>Add to the Collection</h2>
+            </div>
+            <div>
+                <form action="thankyou.php" method="post">
+                    <label for="name">Chilli Name</label>
+                    <input type="text" name="name" />
+                    <label for="origin">Country of Origin</label>
+                    <input type="text" name="origin" />
+                    <label for="shu">Scoville Heat Units</label>
+                    <input type="text" name="shu" />
+                    <input type="submit" value="Submit" />
+                </form>
+            </div>
+        </footer>
     </body>
 </html>
