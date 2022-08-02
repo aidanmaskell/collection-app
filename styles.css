@@ -55,14 +55,35 @@ table td {
 
 footer {
 	background-color: black;
-	height: 300px;
+	font-family: 'Prata', serif;
+	color: white;
+	padding: 0 2%;
 }
 
 footer h2 {
-	font-family: 'Prata', serif;
-	color: white;
 	font-size: 5rem;
-	padding-top: 30px;
+	padding: 30px 0;
+	
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+label {
+	color: white;
+	font-size: 1.4rem;
+}
+
+input[type="text"] {
+    width: 200px;
+	margin-bottom: 20px;
+}
+
+input[type="submit"] {
+    width: 100px;
+	margin-bottom: 20px;
 }
 
 @media screen and (max-width: 900px) {
@@ -82,6 +103,10 @@ footer h2 {
 	
 	table td {
 		padding: 10px 12px;
+	}
+
+	footer h2 {
+		font-size: 3rem;
 	}
 
 }

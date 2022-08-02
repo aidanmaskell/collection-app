@@ -41,6 +41,7 @@ $chilliData = collectDBData($db);
                     <input type="text" name="origin" />
                     <label for="name">Scoville Heat Units</label>
                     <input type="text" name="shu" />
+                    <input type="submit" value="Submit" />
                 </form>
             </div>
         </footer>
