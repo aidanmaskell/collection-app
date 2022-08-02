@@ -25,6 +25,9 @@ $chilliData = collectDBData($db);
             <div></div>
         </nav>
         <main>
+            <div>
+                <h1>The Collection</h1>
+            </div>
             <table>
                 <?echo createTable($chilliData)?>
             </table>
