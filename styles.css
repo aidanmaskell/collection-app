@@ -53,6 +53,18 @@ table td {
 	padding: 15px 20px;
 }
 
+footer {
+	background-color: black;
+	height: 300px;
+}
+
+footer h2 {
+	font-family: 'Prata', serif;
+	color: white;
+	font-size: 5rem;
+	padding-top: 30px;
+}
+
 @media screen and (max-width: 900px) {
 	
 	header h1 {
