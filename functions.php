@@ -76,10 +76,18 @@ function intLength(int $entry) :bool {
  * @param string $name the name to be added
  * @param string $origin the origin to be added 
  * @param integer $shu the scoville heat units to be added
- * 
+ * @return void executes db query
  */
 function addToDB(PDO $db, string $name, string $origin, int $shu) {
     $query = $db->prepare("INSERT INTO `chillis` (`name`, `origin`, `shu`) VALUES (:name, :origin, :shu);");
+    $query->bindParam(':name', $name);
+    $query->bindParam(':origin', $origin);
+    $query->bindParam(':shu', $shu);
+    $query->execute();
+}
+
+function editDB(PDO $db, string $name, string $origin, int $shu) {
+    $query = $db->prepare("UPDATE `chillis` SET `origin` = :origin, `shu` = :shu) WHERE `name` = :name;");
     $query->bindParam(':name', $name);
     $query->bindParam(':origin', $origin);
     $query->bindParam(':shu', $shu);
