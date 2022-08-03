@@ -96,7 +96,7 @@ function addToDB(PDO $db, string $name, string $origin, int $shu) {
  * @return void executes db query
  */
 function editDB(PDO $db, string $name, string $origin, int $shu) {
-    $query = $db->prepare("UPDATE `chillis` SET `origin` = :origin, `shu` = :shu) WHERE `name` = :name;");
+    $query = $db->prepare("UPDATE `chillis` SET `origin` = :origin, `shu` = :shu WHERE `name` = :name;");
     $query->bindParam(':name', $name);
     $query->bindParam(':origin', $origin);
     $query->bindParam(':shu', $shu);
@@ -110,7 +110,7 @@ function editDB(PDO $db, string $name, string $origin, int $shu) {
  * @param string $fieldname the chosen fieldname to return from the db
  * @return array the selected items from the query
  */
-function selectFromDB(PDO $db, string $fieldname)  {
+function selectFromDB(PDO $db, string $fieldname) :array {
     $query = $db->prepare("SELECT $fieldname FROM `chillis`");
     $query->execute();
     $results = $query->fetchAll();

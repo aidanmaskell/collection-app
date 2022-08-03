@@ -2,6 +2,8 @@
 
 require_once 'functions.php';
 
+$db = getdb();
+
 if(!isset($_POST['name']) && !isset($_POST['editName'])) {
     header('Location: index.php');
 }
@@ -21,20 +23,16 @@ if(isset($_POST['editName']) && isset($_POST['editOrigin']) && isset($_POST['edi
 }
 
 if(isset($addingToDB) && strLength($name) && strLength($origin) && (intLength($shu))) {
-    $db = getdb();
     addToDB($db, $name, $origin, $shu);
     $addingToDB = true;
 } else {
     $addingToDB = false;
 }
 
-// if name doesnt match db
-$db = getdb();
 $chilliNames = selectFromDB($db, 'name');
 
 
-if(isset($editDB) && strLength($editName) && strLength($editOrigin) && (intLength($editShu))) {
-    $db = getdb();
+if(in_array($editName, $chilliNames) && isset($editDB) && strLength($editName) && strLength($editOrigin) && (intLength($editShu))) {
     editDB($db, $editName, $editOrigin, $editShu);
     $editDB = true;
 } else {
