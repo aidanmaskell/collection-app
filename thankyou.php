@@ -34,9 +34,7 @@ if(strLength($name) && strLength($origin) && (intLength($shu))) {
     <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
 </head>
     <body>
-        <header class="page2">
-        </header>
-        <main>
+        <main class='page2'>
             <div>
                 <? if($addedToDB === true) {
                     echo '<h1>Thank you for adding to the database!</h1>';
@@ -44,6 +42,13 @@ if(strLength($name) && strLength($origin) && (intLength($shu))) {
                     echo '<h1>Your data is in the wrong format, please try again</h1>';
                 } ?>
             </div>
+            <div>
+                <form class='page2' action="thankyou.php" method="post">
+                    <input type='submit' value='Back To Homepage'>
+                </form>
+            </div>
         </main>
+        <header>
+        </header>
     </body>
 </html>
