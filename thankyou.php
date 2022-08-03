@@ -24,19 +24,19 @@ if(strLength($name) && strLength($origin) && (intLength($shu))) {
 
 <!DOCTYPE html>
 <html lang="en-gb">
-<head>
-	<title>Chillis</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="normalize.css" type="text/css" rel="stylesheet" />
-	<link href="styles.css" type="text/css" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
-</head>
+    <head>
+        <title>Chillis</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="normalize.css" type="text/css" rel="stylesheet" />
+        <link href="styles.css" type="text/css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+    </head>
     <body>
         <main class='page2'>
             <div>
-                <? if($addedToDB === true) {
+                <? if($addedToDB) {
                     echo '<h1>Thank you for adding to the database!</h1>';
                 } else {
                     echo '<h1>Your data is in the wrong format, please try again</h1>';
