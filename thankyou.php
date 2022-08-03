@@ -66,13 +66,7 @@ if(isset($delFromDB) && in_array($delName, $chilliNames) && strLength($delName))
     <body>
         <main class='page2'>
             <div>
-                <? if($addingToDB || $editDB) {
-                    echo '<h1>Thank you for adding to the database!</h1>';
-                } elseif ($delFromDB) {
-                    echo '<h1>' . $delName . ' has been succesfully deleted';
-                } else {
-                    echo '<h1>Your data is in the wrong format, please try again</h1>';
-                } ?>
+                <? echo outcomeMessage($addingToDB, $editDB, $delFromDB, $delName) ?>
             </div>
             <div>
                 <form class='page2' action="thankyou.php" method="post">

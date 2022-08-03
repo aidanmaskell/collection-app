@@ -133,4 +133,14 @@ function deleteFromDB(PDO $db, string $name) {
     $query->execute();
 }
 
+function outcomeMessage($add, $edit, $del, $delName) {
+    if($add || $edit) {
+        return '<h1>Thank you for adding to the database!</h1>';
+    } elseif ($del) {
+        return '<h1>' . $delName . ' has been succesfully deleted';
+    } else {
+        return '<h1>Your data is in the wrong format, please try again</h1>';
+    } 
+}
+
 ?>
