@@ -28,6 +28,11 @@ if(isset($addingToDB) && strLength($name) && strLength($origin) && (intLength($s
     $addingToDB = false;
 }
 
+// if name doesnt match db
+$db = getdb();
+$chilliNames = selectFromDB($db, 'name');
+
+
 if(isset($editDB) && strLength($editName) && strLength($editOrigin) && (intLength($editShu))) {
     $db = getdb();
     editDB($db, $editName, $editOrigin, $editShu);
