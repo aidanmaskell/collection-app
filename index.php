@@ -44,6 +44,20 @@ $chilliData = collectDBData($db);
                     <input type="submit" value="Submit" />
                 </form>
             </div>
+            <div>
+                <h2>Edit the Collection</h2>
+            </div>
+            <div>
+                <form action="thankyou.php" method="post">
+                    <label for="editName">Chilli Name</label>
+                    <input type="text" name="editName" />
+                    <label for="editOrigin">Country of Origin</label>
+                    <input type="text" name="editOrigin" />
+                    <label for="editShu">Scoville Heat Units</label>
+                    <input type="text" name="editShu" />
+                    <input type="submit" value="Submit" />
+                </form>
+            </div>
         </footer>
     </body>
 </html>
