@@ -22,7 +22,6 @@ header {
 
 header h1 {
 	font-size: 10rem;
-	border-bottom: 10px;
 	margin-top: 30px;
 }
 
@@ -32,6 +31,11 @@ main {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+}
+
+main.page2 {
+	align-items: flex-start;
+	padding: 0 5%;
 }
 
 main h1 {
@@ -53,6 +57,46 @@ table td {
 	padding: 15px 20px;
 }
 
+footer {
+	background-color: black;
+	font-family: 'Prata', serif;
+	color: white;
+	padding: 0 2%;
+}
+
+footer h2 {
+	font-size: 5rem;
+	padding: 30px 0;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+label {
+	color: white;
+	font-size: 1.4rem;
+}
+
+input[type="text"] {
+    width: 200px;
+	margin-bottom: 20px;
+}
+
+input[type="submit"] {
+    width: 100px;
+	margin-bottom: 20px;
+}
+
+.page2 input[type="submit"] {
+    width: 150px;
+	height: 35px;
+	margin-bottom: 20px;
+	border-radius: 7%;
+	font-weight: bold;
+}
+
 @media screen and (max-width: 900px) {
 	
 	header h1 {
@@ -70,6 +114,10 @@ table td {
 	
 	table td {
 		padding: 10px 12px;
+	}
+
+	footer h2 {
+		font-size: 3rem;
 	}
 
 }

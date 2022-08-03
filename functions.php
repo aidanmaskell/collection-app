@@ -49,4 +49,41 @@ function createTable(array $dbQuery) {
     return $table;
 }
 
+/**
+ * Checks length of string is less than 100 and return boolean
+ *
+ * @param string $entry string to be tested
+ * @return boolean true if length is less than 100, else false.
+ */
+function strLength(string $entry) :bool {
+    return strlen($entry) < 100 && strlen($entry) !== 0;
+}
+
+/**
+ * Checks an integer is less than 1000000000 and returns boolean
+ *
+ * @param integer $entry integer to be tested
+ * @return boolean true if integer is less than 1000000000, else returns false
+ */
+function intLength(int $entry) :bool {
+    return $entry < 1000000000 && $entry > 0;
+}
+
+/**
+ * adds name, origin and shu data to a database
+ *
+ * @param PDO $db the selected database to be added to
+ * @param string $name the name to be added
+ * @param string $origin the origin to be added 
+ * @param integer $shu the scoville heat units to be added
+ * 
+ */
+function addToDB(PDO $db, string $name, string $origin, int $shu) {
+    $query = $db->prepare("INSERT INTO `chillis` (`name`, `origin`, `shu`) VALUES (:name, :origin, :shu);");
+    $query->bindParam(':name', $name);
+    $query->bindParam(':origin', $origin);
+    $query->bindParam(':shu', $shu);
+    $query->execute();
+}
+
 ?>
