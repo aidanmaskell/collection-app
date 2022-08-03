@@ -4,7 +4,7 @@ require_once 'functions.php';
 
 $db = getdb();
 
-if(!isset($_POST['name']) && !isset($_POST['editName'])) {
+if(!isset($_POST['name']) && !isset($_POST['editName']) && !isset($_POST['delName'])) {
     header('Location: index.php');
 }
 
@@ -22,6 +22,11 @@ if(isset($_POST['editName']) && isset($_POST['editOrigin']) && isset($_POST['edi
     $editDB = false;
 }
 
+if(isset($_POST['delName'])) {
+    $delName = filter_var($_POST['delName'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $delFromDB = false;
+}
+
 if(isset($addingToDB) && strLength($name) && strLength($origin) && (intLength($shu))) {
     addToDB($db, $name, $origin, $shu);
     $addingToDB = true;
@@ -31,12 +36,18 @@ if(isset($addingToDB) && strLength($name) && strLength($origin) && (intLength($s
 
 $chilliNames = selectFromDB($db, 'name');
 
-
-if(in_array($editName, $chilliNames) && isset($editDB) && strLength($editName) && strLength($editOrigin) && (intLength($editShu))) {
+if(isset($editDB) && in_array($editName, $chilliNames) &&  strLength($editName) && strLength($editOrigin) && (intLength($editShu))) {
     editDB($db, $editName, $editOrigin, $editShu);
     $editDB = true;
 } else {
     $editDB = false;
+}
+
+if(isset($delFromDB) && in_array($delName, $chilliNames) && strLength($delName)) {
+    deleteFromDB($db, $delName);
+    $delFromDB = true;
+} else {
+    $delFromDB = false;
 }
 
 ?>
@@ -57,6 +68,8 @@ if(in_array($editName, $chilliNames) && isset($editDB) && strLength($editName) &
             <div>
                 <? if($addingToDB || $editDB) {
                     echo '<h1>Thank you for adding to the database!</h1>';
+                } elseif ($delFromDB) {
+                    echo '<h1>' . $delName . ' has been succesfully deleted';
                 } else {
                     echo '<h1>Your data is in the wrong format, please try again</h1>';
                 } ?>

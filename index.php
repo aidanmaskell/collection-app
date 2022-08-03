@@ -58,6 +58,16 @@ $chilliData = collectDBData($db);
                     <input type="submit" value="Submit" />
                 </form>
             </div>
+            <div>
+                <h2>Delete from the Collection</h2>
+            </div>
+            <div>
+                <form action="thankyou.php" method="post">
+                    <label for="delName">Which chilli would you like to delete:</label>
+                    <input type="text" name="delName" />
+                    <input type="submit" value="Submit" />
+                </form>
+            </div>
         </footer>
     </body>
 </html>

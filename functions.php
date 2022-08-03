@@ -18,7 +18,7 @@ function getdb() :PDO {
  * @return array $chilliData the array returned from the query
  */
 function collectDBData(PDO $db) :array {
-    $query = $db->prepare("SELECT `name`, `origin`, `shu` FROM `chillis`;");
+    $query = $db->prepare("SELECT `name`, `origin`, `shu` FROM `chillis` WHERE `deleted` = 0;");
     $query->execute();
     $chilliData = $query->fetchAll();
     return $chilliData;
@@ -118,6 +118,19 @@ function selectFromDB(PDO $db, string $fieldname) :array {
         $names[] = $result[$fieldname];
     }
     return $names;
+}
+
+/**
+ * sets deleted to field to true within db of selected item.
+ *
+ * @param PDO $db the database to be updated
+ * @param string $name the name of the item to be deleted
+ * @return void runs query
+ */
+function deleteFromDB(PDO $db, string $name) {
+    $query = $db->prepare("UPDATE `chillis` SET `deleted` = 1 WHERE `name` = :name;");
+    $query->bindParam(':name', $name);
+    $query->execute();
 }
 
 ?>
