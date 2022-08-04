@@ -133,7 +133,6 @@ function deleteFromDB(PDO $db, string $name) {
     $query->execute();
 }
 
-
 /**
  * Returns a message referring to whether there was an error when adding to the database.
  *
