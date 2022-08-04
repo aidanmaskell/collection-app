@@ -149,7 +149,7 @@ class Functions extends TestCase {
     public function testOutcomeMessageSuccess3() 
     {
         //expected result of the test
-        $expected = '<h1>This chilli has been succesfully deleted</h1>';
+        $expected = '<h1>This chilli has been successfully deleted</h1>';
         //input for the test to get the result
         $testInput1 = false;
         $testInput2 = false;
