@@ -49,7 +49,7 @@ $chilliData = collectDBData($db);
             </div>
             <div>
                 <form action="thankyou.php" method="post">
-                    <label for="editName">Chilli Name</label>
+                    <label for="editName">Which chilli would you like to edit:</label>
                     <input type="text" name="editName" />
                     <label for="editOrigin">Country of Origin</label>
                     <input type="text" name="editOrigin" />
