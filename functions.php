@@ -146,7 +146,7 @@ function outcomeMessage(bool $add, bool $edit, bool $del) :string {
     if($add || $edit) {
         return '<h1>Thank you for adding to the database!</h1>';
     } elseif ($del) {
-        return '<h1>This chilli has been succesfully deleted</h1>';
+        return '<h1>This chilli has been successfully deleted</h1>';
     } else {
         return '<h1>Your data is in the wrong format, please try again</h1>';
     } 
