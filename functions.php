@@ -135,18 +135,18 @@ function deleteFromDB(PDO $db, string $name) {
 
 
 /**
- * Returns a message depending on whether 
+ * Returns a message referring to whether there was an error when adding to the database.
  *
- * @param [type] $add
- * @param [type] $edit
- * @param [type] $del
- * @return void
+ * @param bool $add states whether the db has been added to
+ * @param bool $edit states whether the db has been edited
+ * @param bool $del states whether the db has been deleted from
+ * @return string states the outcome message
  */
-function outcomeMessage($add, $edit, $del) {
+function outcomeMessage(bool $add, bool $edit, bool $del) :string {
     if($add || $edit) {
         return '<h1>Thank you for adding to the database!</h1>';
     } elseif ($del) {
-        return '<h1>This chilli has been succesfully deleted';
+        return '<h1>This chilli has been succesfully deleted</h1>';
     } else {
         return '<h1>Your data is in the wrong format, please try again</h1>';
     } 
