@@ -26,7 +26,7 @@ $chilliData = collectDBData($db);
                 <h1>The Collection</h1>
             </div>
             <table>
-                <?php echo createTable($chilliData)?>
+                <?= createTable($chilliData)?>
             </table>
         </main>
         <footer>
@@ -36,11 +36,11 @@ $chilliData = collectDBData($db);
             <div>
                 <form action="thankyou.php" method="post">
                     <label for="name">Chilli Name</label>
-                    <input type="text" name="name" />
+                    <input type="text" name="name" id="name" />
                     <label for="origin">Country of Origin</label>
-                    <input type="text" name="origin" />
+                    <input type="text" name="origin" id="origin" />
                     <label for="shu">Scoville Heat Units</label>
-                    <input type="text" name="shu" />
+                    <input type="text" name="shu" id="shu" />
                     <input type="submit" value="Submit" />
                 </form>
             </div>
@@ -49,12 +49,12 @@ $chilliData = collectDBData($db);
             </div>
             <div>
                 <form action="thankyou.php" method="post">
-                    <label for="editName">Chilli Name</label>
-                    <input type="text" name="editName" />
+                    <label for="editName">Which chilli would you like to edit:</label>
+                    <input type="text" name="editName" id="editName" />
                     <label for="editOrigin">Country of Origin</label>
-                    <input type="text" name="editOrigin" />
+                    <input type="text" name="editOrigin" id="editOrigin" />
                     <label for="editShu">Scoville Heat Units</label>
-                    <input type="text" name="editShu" />
+                    <input type="text" name="editShu" id="editShu" />
                     <input type="submit" value="Submit" />
                 </form>
             </div>
@@ -64,7 +64,7 @@ $chilliData = collectDBData($db);
             <div>
                 <form action="thankyou.php" method="post">
                     <label for="delName">Which chilli would you like to delete:</label>
-                    <input type="text" name="delName" />
+                    <input type="text" name="delName" id="delName" />
                     <input type="submit" value="Submit" />
                 </form>
             </div>

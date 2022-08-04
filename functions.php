@@ -121,7 +121,7 @@ function selectFromDB(PDO $db, string $fieldname) :array {
 }
 
 /**
- * sets deleted to field to true within db of selected item.
+ * Sets deleted to field to true within db of selected item.
  *
  * @param PDO $db the database to be updated
  * @param string $name the name of the item to be deleted
@@ -131,6 +131,25 @@ function deleteFromDB(PDO $db, string $name) {
     $query = $db->prepare("UPDATE `chillis` SET `deleted` = 1 WHERE `name` = :name;");
     $query->bindParam(':name', $name);
     $query->execute();
+}
+
+
+/**
+ * Returns a message referring to whether there was an error when adding to the database.
+ *
+ * @param bool $add states whether the db has been added to
+ * @param bool $edit states whether the db has been edited
+ * @param bool $del states whether the db has been deleted from
+ * @return string states the outcome message
+ */
+function outcomeMessage(bool $add, bool $edit, bool $del) :string {
+    if($add || $edit) {
+        return '<h1>Thank you for adding to the database!</h1>';
+    } elseif ($del) {
+        return '<h1>This chilli has been successfully deleted</h1>';
+    } else {
+        return '<h1>Your data is in the wrong format, please try again</h1>';
+    } 
 }
 
 ?>
