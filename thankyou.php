@@ -9,15 +9,15 @@ if(!isset($_POST['name']) && !isset($_POST['editName']) && !isset($_POST['delNam
 }
 
 if(isset($_POST['name']) && isset($_POST['origin']) && isset($_POST['shu'])) {
-    $name = filter_var($_POST['name'], FILTER_SANITIZE_FULL_SPECIAL_CHARS); 
-    $origin = filter_var($_POST['origin'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $name = ucfirst(filter_var($_POST['name'], FILTER_SANITIZE_FULL_SPECIAL_CHARS)); 
+    $origin = ucfirst(filter_var($_POST['origin'], FILTER_SANITIZE_FULL_SPECIAL_CHARS));
     $shu = filter_var($_POST['shu'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $addingToDB = false;
 }
 
 if(isset($_POST['editName']) && isset($_POST['editOrigin']) && isset($_POST['editShu'])){
-    $editName = filter_var($_POST['editName'], FILTER_SANITIZE_FULL_SPECIAL_CHARS); 
-    $editOrigin = filter_var($_POST['editOrigin'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $editName = ucfirst(filter_var($_POST['editName'], FILTER_SANITIZE_FULL_SPECIAL_CHARS)); 
+    $editOrigin = ucfirst(filter_var($_POST['editOrigin'], FILTER_SANITIZE_FULL_SPECIAL_CHARS));
     $editShu = filter_var($_POST['editShu'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $editDB = false;
 }
@@ -66,7 +66,7 @@ if(isset($delFromDB) && in_array($delName, $chilliNames) && strLength($delName))
     <body>
         <main class='page2'>
             <div>
-                <? echo outcomeMessage($addingToDB, $editDB, $delFromDB, $delName) ?>
+                <? echo outcomeMessage($addingToDB, $editDB, $delFromDB) ?>
             </div>
             <div>
                 <form class='page2' action="thankyou.php" method="post">
