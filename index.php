@@ -26,7 +26,7 @@ $chilliData = collectDBData($db);
                 <h1>The Collection</h1>
             </div>
             <table>
-                <?= createTable($chilliData)?>
+                <?php echo createTable($chilliData)?>
             </table>
         </main>
         <footer>
@@ -36,35 +36,11 @@ $chilliData = collectDBData($db);
             <div>
                 <form action="thankyou.php" method="post">
                     <label for="name">Chilli Name</label>
-                    <input type="text" name="name" id="name" />
+                    <input type="text" name="name" />
                     <label for="origin">Country of Origin</label>
-                    <input type="text" name="origin" id="origin" />
+                    <input type="text" name="origin" />
                     <label for="shu">Scoville Heat Units</label>
-                    <input type="text" name="shu" id="shu" />
-                    <input type="submit" value="Submit" />
-                </form>
-            </div>
-            <div>
-                <h2>Edit the Collection</h2>
-            </div>
-            <div>
-                <form action="thankyou.php" method="post">
-                    <label for="editName">Which chilli would you like to edit:</label>
-                    <input type="text" name="editName" id="editName" />
-                    <label for="editOrigin">Country of Origin</label>
-                    <input type="text" name="editOrigin" id="editOrigin" />
-                    <label for="editShu">Scoville Heat Units</label>
-                    <input type="text" name="editShu" id="editShu" />
-                    <input type="submit" value="Submit" />
-                </form>
-            </div>
-            <div>
-                <h2>Delete from the Collection</h2>
-            </div>
-            <div>
-                <form action="thankyou.php" method="post">
-                    <label for="delName">Which chilli would you like to delete:</label>
-                    <input type="text" name="delName" id="delName" />
+                    <input type="text" name="shu" />
                     <input type="submit" value="Submit" />
                 </form>
             </div>

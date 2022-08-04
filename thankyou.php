@@ -2,52 +2,22 @@
 
 require_once 'functions.php';
 
-$db = getdb();
-
-if(!isset($_POST['name']) && !isset($_POST['editName']) && !isset($_POST['delName'])) {
+if(!isset($_POST['name']) && !isset($_POST['origin']) && !isset($_POST['shu'])) {
     header('Location: index.php');
 }
 
-if(isset($_POST['name']) && isset($_POST['origin']) && isset($_POST['shu'])) {
-    $name = ucfirst(filter_var($_POST['name'], FILTER_SANITIZE_FULL_SPECIAL_CHARS)); 
-    $origin = ucfirst(filter_var($_POST['origin'], FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-    $shu = filter_var($_POST['shu'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $addingToDB = false;
-}
+$name = filter_var($_POST['name'], FILTER_SANITIZE_FULL_SPECIAL_CHARS); 
+$origin = filter_var($_POST['origin'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$shu = filter_var($_POST['shu'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-if(isset($_POST['editName']) && isset($_POST['editOrigin']) && isset($_POST['editShu'])){
-    $editName = ucfirst(filter_var($_POST['editName'], FILTER_SANITIZE_FULL_SPECIAL_CHARS)); 
-    $editOrigin = ucfirst(filter_var($_POST['editOrigin'], FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-    $editShu = filter_var($_POST['editShu'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $editDB = false;
-}
+$addedToDB = false;
 
-if(isset($_POST['delName'])) {
-    $delName = filter_var($_POST['delName'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $delFromDB = false;
-}
-
-if(isset($addingToDB) && strLength($name) && strLength($origin) && (intLength($shu))) {
+if(strLength($name) && strLength($origin) && (intLength($shu))) {
+    $db = getdb();
     addToDB($db, $name, $origin, $shu);
-    $addingToDB = true;
+    $addedToDB = true;
 } else {
-    $addingToDB = false;
-}
-
-$chilliNames = selectFromDB($db, 'name');
-
-if(isset($editDB) && in_array($editName, $chilliNames) &&  strLength($editName) && strLength($editOrigin) && (intLength($editShu))) {
-    editDB($db, $editName, $editOrigin, $editShu);
-    $editDB = true;
-} else {
-    $editDB = false;
-}
-
-if(isset($delFromDB) && in_array($delName, $chilliNames) && strLength($delName)) {
-    deleteFromDB($db, $delName);
-    $delFromDB = true;
-} else {
-    $delFromDB = false;
+    $addedToDB = false;
 }
 
 ?>
@@ -66,7 +36,11 @@ if(isset($delFromDB) && in_array($delName, $chilliNames) && strLength($delName))
     <body>
         <main class='page2'>
             <div>
-                <? echo outcomeMessage($addingToDB, $editDB, $delFromDB) ?>
+                <? if($addedToDB) {
+                    echo '<h1>Thank you for adding to the database!</h1>';
+                } else {
+                    echo '<h1>Your data is in the wrong format, please try again</h1>';
+                } ?>
             </div>
             <div>
                 <form class='page2' action="thankyou.php" method="post">

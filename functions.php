@@ -18,7 +18,7 @@ function getdb() :PDO {
  * @return array $chilliData the array returned from the query
  */
 function collectDBData(PDO $db) :array {
-    $query = $db->prepare("SELECT `name`, `origin`, `shu` FROM `chillis` WHERE `deleted` = 0;");
+    $query = $db->prepare("SELECT `name`, `origin`, `shu` FROM `chillis`;");
     $query->execute();
     $chilliData = $query->fetchAll();
     return $chilliData;
@@ -76,7 +76,7 @@ function intLength(int $entry) :bool {
  * @param string $name the name to be added
  * @param string $origin the origin to be added 
  * @param integer $shu the scoville heat units to be added
- * @return void executes db query
+ * 
  */
 function addToDB(PDO $db, string $name, string $origin, int $shu) {
     $query = $db->prepare("INSERT INTO `chillis` (`name`, `origin`, `shu`) VALUES (:name, :origin, :shu);");
@@ -84,72 +84,6 @@ function addToDB(PDO $db, string $name, string $origin, int $shu) {
     $query->bindParam(':origin', $origin);
     $query->bindParam(':shu', $shu);
     $query->execute();
-}
-
-/**
- * Edits data from within the database.
- *
- * @param PDO $db The database to be edited
- * @param string $name name of the chilli to be edited
- * @param string $origin origin to be edited
- * @param integer $shu shu to be edited
- * @return void executes db query
- */
-function editDB(PDO $db, string $name, string $origin, int $shu) {
-    $query = $db->prepare("UPDATE `chillis` SET `origin` = :origin, `shu` = :shu WHERE `name` = :name;");
-    $query->bindParam(':name', $name);
-    $query->bindParam(':origin', $origin);
-    $query->bindParam(':shu', $shu);
-    $query->execute();
-}
-
-/**
- * Selects data from database and returns it
- *
- * @param PDO $db the database to be selected from
- * @param string $fieldname the chosen fieldname to return from the db
- * @return array the selected items from the query
- */
-function selectFromDB(PDO $db, string $fieldname) :array {
-    $query = $db->prepare("SELECT $fieldname FROM `chillis`");
-    $query->execute();
-    $results = $query->fetchAll();
-    foreach($results as $result) {
-        $names[] = $result[$fieldname];
-    }
-    return $names;
-}
-
-/**
- * Sets deleted to field to true within db of selected item.
- *
- * @param PDO $db the database to be updated
- * @param string $name the name of the item to be deleted
- * @return void runs query
- */
-function deleteFromDB(PDO $db, string $name) {
-    $query = $db->prepare("UPDATE `chillis` SET `deleted` = 1 WHERE `name` = :name;");
-    $query->bindParam(':name', $name);
-    $query->execute();
-}
-
-
-/**
- * Returns a message referring to whether there was an error when adding to the database.
- *
- * @param bool $add states whether the db has been added to
- * @param bool $edit states whether the db has been edited
- * @param bool $del states whether the db has been deleted from
- * @return string states the outcome message
- */
-function outcomeMessage(bool $add, bool $edit, bool $del) :string {
-    if($add || $edit) {
-        return '<h1>Thank you for adding to the database!</h1>';
-    } elseif ($del) {
-        return '<h1>This chilli has been succesfully deleted</h1>';
-    } else {
-        return '<h1>Your data is in the wrong format, please try again</h1>';
-    } 
 }
 
 ?>
