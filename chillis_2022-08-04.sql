@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.38)
 # Database: chillis
-# Generation Time: 2022-08-01 09:28:20 +0000
+# Generation Time: 2022-08-04 08:42:04 +0000
 # ************************************************************
 
 
@@ -29,30 +29,31 @@ CREATE TABLE `chillis` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(1000) NOT NULL DEFAULT '',
   `origin` varchar(1000) NOT NULL DEFAULT '',
-  `shu` int(11) NOT NULL,
+  `shu` int(11) unsigned NOT NULL,
+  `deleted` tinyint(1) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 LOCK TABLES `chillis` WRITE;
 /*!40000 ALTER TABLE `chillis` DISABLE KEYS */;
 
-INSERT INTO `chillis` (`id`, `name`, `origin`, `shu`)
+INSERT INTO `chillis` (`id`, `name`, `origin`, `shu`, `deleted`)
 VALUES
-	(1,'Aji Limon','Peru',40000),
-	(2,'Habanero','Cuba',225000),
-	(3,'Scotch Bonnet','Brazil',225000),
-	(4,'Jalapeno','Mexico',5250),
-	(5,'Bird\'s Eye','Mexico',75000),
-	(6,'Cherry Bomb','Hungary',5000),
-	(7,'Carolina Reaper','USA',2200000),
-	(8,'Cayenne','French Guiana',40000),
-	(9,'Kashmiri','India',1500),
-	(10,'Piri Piri','Mozambique',175000),
-	(11,'Padron','Spain',1000),
-	(12,'Serrano','Mexico',20000),
-	(13,'Tabasco','Mexico',40000),
-	(14,'Trinidad Scorpion','Trinidad & Tobago',1200000),
-	(15,'Poblano','Mexico',1250);
+	(1,'Aji Limon','Peru',40000,0),
+	(2,'Habanero','Cuba',225000,0),
+	(3,'Scotch Bonnet','Brazil',225000,0),
+	(4,'Jalapeno','Mexico',5250,0),
+	(5,'Bird\'s Eye','Mexico',75000,0),
+	(6,'Cherry Bomb','Hungary',5000,0),
+	(7,'Carolina Reaper','USA',2200000,0),
+	(8,'Cayenne','French Guiana',40000,0),
+	(9,'Kashmiri','India',1500,0),
+	(10,'Piri Piri','Mozambique',175000,0),
+	(11,'Padron','Spain',1000,0),
+	(12,'Serrano','Mexico',20000,0),
+	(13,'Tabasco','Mexico',40000,0),
+	(14,'Trinidad Scorpion','Trinidad & Tobago',1200000,0),
+	(15,'Poblano','Mexico',1250,0);
 
 /*!40000 ALTER TABLE `chillis` ENABLE KEYS */;
 UNLOCK TABLES;

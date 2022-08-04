@@ -117,4 +117,73 @@ class Functions extends TestCase {
         //run the real function with the input
         $case = StrLength($testInput1);
     }
+
+    public function testOutcomeMessageSuccess1() 
+    {
+        //expected result of the test
+        $expected = '<h1>Thank you for adding to the database!</h1>';
+        //input for the test to get the result
+        $testInput1 = true;
+        $testInput2 = false;
+        $testInput3 = false;
+        //run the real function with the input
+        $case = outcomeMessage($testInput1, $testInput2, $testInput3);
+        //compare the expected result with the actual result
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testOutcomeMessageSuccess2() 
+    {
+        //expected result of the test
+        $expected = '<h1>Thank you for adding to the database!</h1>';
+        //input for the test to get the result
+        $testInput1 = false;
+        $testInput2 = true;
+        $testInput3 = false;
+        //run the real function with the input
+        $case = outcomeMessage($testInput1, $testInput2, $testInput3);
+        //compare the expected result with the actual result
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testOutcomeMessageSuccess3() 
+    {
+        //expected result of the test
+        $expected = '<h1>This chilli has been successfully deleted</h1>';
+        //input for the test to get the result
+        $testInput1 = false;
+        $testInput2 = false;
+        $testInput3 = true;
+        //run the real function with the input
+        $case = outcomeMessage($testInput1, $testInput2, $testInput3);
+        //compare the expected result with the actual result
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testOutcomeMessageFailure() 
+    {
+        //expected result of the test
+        $expected = '<h1>Your data is in the wrong format, please try again</h1>';
+        //input for the test to get the result
+        $testInput1 = false;
+        $testInput2 = false;
+        $testInput3 = false;
+        //run the real function with the input
+        $case = outcomeMessage($testInput1, $testInput2, $testInput3);
+        //compare the expected result with the actual result
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testOutcomeMessageMalform()
+    {
+        //expected result of the test
+        $expected = '<h1>Your data is in the wrong format, please try again</h1>';
+        //input for the test to get the result
+        $testInput1 = [23 , 23, 54];
+        $testInput2 = false;
+        $testInput3 = false;
+        $this->expectException(TypeError::class);
+        //run the real function with the input
+        $case = outcomeMessage($testInput1, $testInput2, $testInput3);
+    }
 }
